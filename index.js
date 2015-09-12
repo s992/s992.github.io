@@ -28,7 +28,7 @@ var metadata = {
 	site: {
 		title: "Sean Walsh",
 		author: "Sean Walsh",
-		url: PROD ? "http://s992.github.io" : "http://localhost:8080",
+		url: PROD ? "http://swalsh.org" : "http://localhost:8080",
 		social: {
 			github: "https://github.com/s992",
 			twitter: "https://twitter.com/theseanwalsh",
@@ -49,6 +49,7 @@ handlebars.registerHelper("archive", handlebarsHelpers.archive);
 
 metalsmith(__dirname)
 	.metadata( metadata )
+	.clean( false )
 	.use(ignore([ "favicons/*" ]))
 	.use(sass({
 		outputDir: "assets/css/"
@@ -122,7 +123,7 @@ metalsmith(__dirname)
 		removeOriginal: true
 	}))
 	.use(cleanCss())
-	.destination("./build")
+	.destination("../")
 	.build(function( err ) {
 		if( err ) {
 			console.log( err );
