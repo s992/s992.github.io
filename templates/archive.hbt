@@ -1,0 +1,21 @@
+{{> html-header}}
+{{> header}}
+<main class="container-fluid">
+	<div class="row">
+		<div class="col-md-8 col-lg-7 col-xl-5 center-block">
+			<h1>Blog Archive</h1>
+			<div id="blog-archives">
+				<dl>
+					{{#archive collections.blog}}
+						{{#if @year}}
+							<dt>{{ @year }}</dt>
+						{{/if}}
+						<dd><a href="{{link path}}">{{title}}</a></dd>
+					{{/archive}}
+				</dl>
+			</div>
+		</div>
+	</div>
+</main>
+{{> footer}}
+{{> html-footer}}
