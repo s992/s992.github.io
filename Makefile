@@ -1,17 +1,17 @@
-today = date '+%Y-%m-%d_%H-%M-%S'
-
-build: index.js
+build:
 	node index
 
-serve: index.js
+serve:
 	http-server build
 
-prod: index.js
+prod:
 	node index --env prod
 
 deploy:
 	cd ../build; \
 	git status; \
-	echo $(date)
 	git add .; \
-	git commit -m 'New build $(today)'
+	git commit -m 'New build'; \
+	git push
+
+.PHONY: build serve prod deploy
