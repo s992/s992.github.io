@@ -123,7 +123,7 @@ metalsmith(__dirname)
 		removeOriginal: true
 	}))
 	.use(cleanCss())
-	.destination("../")
+	.destination( PROD ? "../" : "./build" )
 	.build(function( err ) {
 		if( err ) {
 			console.log( err );
