@@ -2,6 +2,7 @@ build:
 	node index
 
 serve:
+	make build; \
 	http-server build
 
 prod:
