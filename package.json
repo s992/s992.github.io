@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node index",
+    "serve": "npm run build & http-server build",
+    "build:prod": "node index --env prod",
+    "deploy": "cd ../build & git status & git add . & git commit -m 'New build' & git push"
   },
   "author": "Sean Walsh <sean.walsh87+npm@gmail.com> (http://swalsh.org/)",
   "license": "MIT",
